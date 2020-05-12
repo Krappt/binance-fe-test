@@ -1,0 +1,103 @@
+@import './assets/styles/variables-theme';
+
+body {
+  margin: 0;
+  font-family: $MAIN_FONT;
+  color: $MAIN_COLOR;
+  font-size: 14px;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track, .simplebar-track {
+  background-color: $ICON_COLOR;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $LIGHT_GRAY;
+}
+
+div.simplebar-track.simplebar-vertical {
+  width: 8px;
+  background-color: $ICON_COLOR;
+
+  .simplebar-scrollbar {
+    &:before {
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+      border-radius: 0;
+      background-color: $LIGHT_GRAY;
+      opacity: 1;
+    }
+  }
+}
+
+.search-field {
+  width: 250px;
+  border-bottom: 1px solid $ICON_COLOR;
+  padding-bottom: 7px;
+
+  svg {
+    color: $ICON_COLOR;
+    font-size: 20px;
+    fill: $ICON_COLOR;
+    width: 1em;
+    height: 1em;
+    position: relative;
+    top: 5px;
+  }
+
+  input {
+    color: $MAIN_COLOR;
+    border: none;
+    background: #ffffff;
+    height: 15px;
+    outline: none;
+    font-size: 14px;
+    margin-left: 3px;
+    width: 90%;
+  }
+}
+
+input[type="radio"] {
+  display:none;
+}
+
+input[type="radio"] + label {
+  font-size: 12px;
+
+  span {
+    position: relative;
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin: -2px 5px 0 0;
+    vertical-align: middle;
+    background: #ffffff;
+    cursor: pointer;
+    border: 1px solid $ICON_COLOR;
+    border-radius: 50%;
+  }
+}
+
+input[type="radio"]:checked + label span {
+  &:before {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: $ICON_COLOR_ACTIVE;
+    border-radius: 50%;
+    top: 2px;
+    left: 2px;
+  }
+}
+
+input::placeholder {
+  color: $ICON_COLOR;
+  font-size: 14px;
+}

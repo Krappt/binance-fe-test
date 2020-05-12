@@ -1,0 +1,13 @@
+$MAIN_FONT: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+$SECOND_FONT: 'Montserrat' !important;
+
+$MAIN_COLOR: #3A444D;
+$SECOND_COLOR: #76808F;
+$LIGHT_GRAY: #9b9b9b;
+$ICON_COLOR: #CCCCCC;
+$ICON_COLOR_ACTIVE: #f0b90b;
+$INCREASE_COLOR: #02ae68;
+$DECREASE_COLOR: #f84960;
+
+:export { iconColor: $ICON_COLOR; }
+:export { iconColorActive: $ICON_COLOR_ACTIVE; }
