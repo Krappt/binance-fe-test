@@ -4,11 +4,14 @@ import wsMiddleware from './middleware/middleware';
 import reducers from './pages/App/reducer';
 
 const middleware = [thunk, wsMiddleware];
-const store = createStore(
-  reducers,
-  compose(
-    applyMiddleware(...middleware),
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(), // eslint-disable-line no-underscore-dangle
-  ),
+const composeEnhancers =
+  process.env.NODE_ENV === 'development' && typeof window === 'object' &&
+  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
+    }) : compose;
+const enhancer = composeEnhancers(
+  applyMiddleware(...middleware),
 );
+const store = createStore(reducers, enhancer);
+
 export default store;
