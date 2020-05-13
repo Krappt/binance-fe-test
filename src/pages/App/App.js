@@ -64,7 +64,7 @@ class App extends Component {
       <div className={styles.app}>
         { !show && <Loader /> }
         { show &&
-          <div>
+          <div data-testid="app-inner">
             <div className={styles.header}>
               Market
             </div>
@@ -80,6 +80,7 @@ class App extends Component {
                 return (
                   <li
                     key={item.name}
+                    data-testid={item.name}
                     className={`${active ? styles['market-active'] : ''}`}
                   >
                     <span role="button" tabIndex={0} onClick={() => !active ? selectPM(name, elems ? elems[0] : '') : null}>{label || name}</span>
@@ -104,10 +105,10 @@ class App extends Component {
               })}
             </ul>
             <div className={styles.actions}>
-              <div className={`search-field ${styles['actions-search']}`}><SearchIcon /><input type="text" placeholder="Search" value={searchKey} onChange={(e) => search(e.target.value)} /></div>
+              <div className={`search-field ${styles['actions-search']}`}><SearchIcon /><input data-testid="search" type="text" placeholder="Search" value={searchKey} onChange={(e) => search(e.target.value)} /></div>
               <div className={styles['actions-view']}>
                 <input type="radio" id="c1" name="c1" checked={showChange} onChange={() => changeView(true)} /> <label htmlFor="c1"><span />Change</label>
-                <input type="radio" id="c2" name="c2" checked={!showChange} onChange={() => changeView(false)} /> <label htmlFor="c2"><span />Volume</label>
+                <input type="radio" id="c2" name="c2" checked={!showChange} onChange={() => changeView(false)} /> <label data-testid="volume" htmlFor="c2"><span />Volume</label>
               </div>
             </div>
             <table className={styles.products}>
